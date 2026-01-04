@@ -43,6 +43,10 @@
     <Compile Include="Game\\GameLoop.cs" />
     <Compile Include="Game\\GameSettings.cs" />
     <Compile Include="Game\\Snake.cs" />
+    <Compile Include="Networking\\ClientConnection.cs" />
+    <Compile Include="Networking\\GameClient.cs" />
+    <Compile Include="Networking\\GameServer.cs" />
+    <Compile Include="Networking\\GameState.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Rendering\\ConsoleBuffer.cs" />
     <Compile Include="Rendering\\ConsoleRenderer.cs" />
