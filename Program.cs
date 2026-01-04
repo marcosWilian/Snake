@@ -1,128 +1,24 @@
-﻿using System;
+﻿using ConsoleApplication2.Game;
+using ConsoleApplication2.Rendering;
 
 namespace ConsoleApplication2
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            Console.SetWindowSize(120, 29);
-            Tela t = new Tela(30, 1, 118, 25); // ZoNA JOGAVEL
+            const int consoleWidth = 120;
+            const int consoleHeight = 30;
+            System.Console.SetWindowSize(consoleWidth, consoleHeight);
+            System.Console.SetBufferSize(consoleWidth, consoleHeight);
 
-            geradorPontos gerador = null;
+            var settings = new GameSettings(playAreaWidth: 100, playAreaHeight: 20, playAreaOffsetX: 10, playAreaOffsetY: 5, refreshIntervalMs: 120);
+            var renderer = new ConsoleRenderer(consoleWidth, consoleHeight);
+            var snake = new Snake(initialPosition: new Position(settings.PlayAreaOffsetX + settings.PlayAreaWidth / 2, settings.PlayAreaOffsetY + settings.PlayAreaHeight / 2), initialLength: 3, initialDirection: Direction.Right);
+            var foodGenerator = new FoodGenerator(settings);
+            var game = new GameLoop(settings, snake, foodGenerator, renderer);
 
-            Tela t2 = new Tela(1, 1, 28, 25); // CAMPO PONTOS
-            Tela t3 = new Tela(1, 27, 118, 27); // CAMPO MSG
-
-
-            Pto[] p = new Pto[5];
-            p[0] = new Pto("‡", 45, 15, 1);
-
-            Grafico g = new Grafico();
-
-            bool repete = true;
-
-            ConsoleKeyInfo Tecla;
-
-            Console.BackgroundColor = ConsoleColor.DarkYellow;
-
-            g.desenharTela(t);
-
-            g.desenharTela(t2);
-            Console.BackgroundColor = ConsoleColor.Gray;
-
-            g.desenharTela(t3);
-            Console.ResetColor();
-
-            int tamanhoCobra = 1; // tamanho da cobra
-            while (repete == true)
-            {
-                if (gerador == null || gerador.getMarca() == false)
-                {
-                    var sorteio = new geradorPontos(0, 0, true);
-                    gerador = new geradorPontos(sorteio.AleatorioX(), sorteio.AleatorioY(), true);
-                    g.defineTexto(gerador.getpontoX(), gerador.getpontoY(), "*");
-                }
-
-                Tecla = Console.ReadKey(true);
-
-                // memoriza posições anteriores
-                for (int x = 0; x < tamanhoCobra; x++)
-                {
-                    p[x].lembrarPosicao();
-                }
-
-                moverCabeça(p[0], Tecla);
-
-                if (!g.validarPto(p[0], t))
-                {
-                    repete = false;
-                    g.defineTexto(60, 27, "GAME OVER");
-                    Console.ReadKey();
-                    continue;
-                }
-
-                // move corpo seguindo a cabeça
-                for (int x = 1; x < tamanhoCobra; x++)
-                {
-                    p[x].setUltimo(p[x].getPX(), p[x].getPY());
-                    p[x].setPX(p[x - 1].getultimoX());
-                    p[x].setPY(p[x - 1].getultimoY());
-                }
-
-                int caudaX = p[tamanhoCobra - 1].getultimoX();
-                int caudaY = p[tamanhoCobra - 1].getultimoY();
-
-                // redesenha cobra e limpa cauda antiga
-                g.desenharCobra(p, tamanhoCobra);
-                g.limparPosicao(caudaX, caudaY);
-
-                if (g.alimentar(p[0], gerador))
-                {
-                    tamanhoCobra++;
-                    if (tamanhoCobra > p.Length)
-                    {
-                        Array.Resize(ref p, tamanhoCobra + 5);
-                    }
-
-                    p[tamanhoCobra - 1] = new Pto("‡", p[tamanhoCobra - 2].getultimoX(), p[tamanhoCobra - 2].getultimoY(), tamanhoCobra);
-                    gerador = new geradorPontos(gerador.AleatorioX(), gerador.AleatorioY(), true);
-                    g.defineTexto(gerador.getpontoX(), gerador.getpontoY(), "*");
-                }
-
-            }
-
+            game.Run();
         }
-
-        static void moverCabeça(Pto cabeca, ConsoleKeyInfo Tecla)
-        {
-            if (Tecla.Key == ConsoleKey.LeftArrow)
-            {
-                cabeca.setPX(cabeca.getPX() - cabeca.gettamanhoCobra());
-
-            }
-            else if (Tecla.Key == ConsoleKey.RightArrow)
-            {
-                cabeca.setPX(cabeca.getPX() + cabeca.gettamanhoCobra());
-
-            }
-            else if (Tecla.Key == ConsoleKey.UpArrow)
-            {
-                cabeca.setPY(cabeca.getPY() - cabeca.gettamanhoCobra());
-
-            }
-            else if (Tecla.Key == ConsoleKey.DownArrow)
-            {
-                cabeca.setPY(cabeca.getPY() + cabeca.gettamanhoCobra());
-
-            }
-            else
-            {
-                // mantém posição quando tecla inválida
-            }
-
-        }
-
     }
 }
-
