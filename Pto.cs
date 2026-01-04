@@ -51,6 +51,11 @@ namespace ConsoleApplication2
         {
             return ultimoY;
         }
+        public void lembrarPosicao()
+        {
+            ultimoX = x;
+            ultimoY = y;
+        }
         public void setPX(int x)
         {
             this.x = x;
@@ -58,6 +63,12 @@ namespace ConsoleApplication2
         public void setPY(int y)
         {
             this.y = y;
+        }
+
+        public void setUltimo(int ultimoX, int ultimoY)
+        {
+            this.ultimoX = ultimoX;
+            this.ultimoY = ultimoY;
         }
 
         public void settamanhoCobra(int tamanhoCobra)
