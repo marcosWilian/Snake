@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Threading;
 
 namespace ConsoleApplication2
 {
     class Grafico
     {
-
 
         public void desenharTela(Tela t)
         {
@@ -27,7 +25,6 @@ namespace ConsoleApplication2
                 Console.WriteLine(" ");
             }
         }
-
 
         public bool validarPto(Pto p, Tela t)
         {
@@ -54,14 +51,7 @@ namespace ConsoleApplication2
             }
 
             return false;
-
-
-
-
         }
-
-
-
 
         public void desenharCobra(Pto[] cobra, int tamanho)
         {
@@ -74,28 +64,17 @@ namespace ConsoleApplication2
 
             }
         }
-
-
         public void limparPosicao(int x, int y)
         {
             Console.SetCursorPosition(x, y);
             Console.WriteLine(" ");
         }
 
-
         public void defineTexto(int LocalizacaoX, int LocalizacaoY, String Mensagem)
         {
             Console.ResetColor();
             Console.SetCursorPosition(LocalizacaoX, LocalizacaoY);
             Console.WriteLine(Mensagem);
-
-
         }
-
-
     }
-
 }
-
-
-

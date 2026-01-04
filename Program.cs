@@ -34,10 +34,6 @@ namespace ConsoleApplication2
             g.desenharTela(t3);
             Console.ResetColor();
 
-
-            g.defineTexto(3, 2, "JOGO DA COBRA");
-            g.defineTexto(3, 3, "Feito por Marcos");
-
             int tamanhoCobra = 1; // tamanho da cobra
             while (repete == true)
             {
