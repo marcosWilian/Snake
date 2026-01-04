@@ -1,0 +1,126 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Snake\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7959BE98-7B86-4902-8CC1-61649E7D5788}|ConsoleApplication2.csproj|d:\\snake\\pto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7959BE98-7B86-4902-8CC1-61649E7D5788}|ConsoleApplication2.csproj|solutionrelative:pto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7959BE98-7B86-4902-8CC1-61649E7D5788}|ConsoleApplication2.csproj|d:\\snake\\tela.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7959BE98-7B86-4902-8CC1-61649E7D5788}|ConsoleApplication2.csproj|solutionrelative:tela.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7959BE98-7B86-4902-8CC1-61649E7D5788}|ConsoleApplication2.csproj|d:\\snake\\grafico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7959BE98-7B86-4902-8CC1-61649E7D5788}|ConsoleApplication2.csproj|solutionrelative:grafico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7959BE98-7B86-4902-8CC1-61649E7D5788}|ConsoleApplication2.csproj|d:\\snake\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7959BE98-7B86-4902-8CC1-61649E7D5788}|ConsoleApplication2.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7959BE98-7B86-4902-8CC1-61649E7D5788}|ConsoleApplication2.csproj|d:\\snake\\correscaracteresgraficos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7959BE98-7B86-4902-8CC1-61649E7D5788}|ConsoleApplication2.csproj|solutionrelative:correscaracteresgraficos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7959BE98-7B86-4902-8CC1-61649E7D5788}|ConsoleApplication2.csproj|d:\\snake\\geradorpontos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7959BE98-7B86-4902-8CC1-61649E7D5788}|ConsoleApplication2.csproj|solutionrelative:geradorpontos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Tela.cs",
+              "DocumentMoniker": "D:\\Snake\\Tela.cs",
+              "RelativeDocumentMoniker": "Tela.cs",
+              "ToolTip": "D:\\Snake\\Tela.cs",
+              "RelativeToolTip": "Tela.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-04T16:10:11.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Pto.cs",
+              "DocumentMoniker": "D:\\Snake\\Pto.cs",
+              "RelativeDocumentMoniker": "Pto.cs",
+              "ToolTip": "D:\\Snake\\Pto.cs",
+              "RelativeToolTip": "Pto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-04T16:10:06.281Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Snake\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Snake\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-04T16:10:01.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Grafico.cs",
+              "DocumentMoniker": "D:\\Snake\\Grafico.cs",
+              "RelativeDocumentMoniker": "Grafico.cs",
+              "ToolTip": "D:\\Snake\\Grafico.cs",
+              "RelativeToolTip": "Grafico.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-04T16:10:00.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CorresCaracteresGraficos.cs",
+              "DocumentMoniker": "D:\\Snake\\CorresCaracteresGraficos.cs",
+              "RelativeDocumentMoniker": "CorresCaracteresGraficos.cs",
+              "ToolTip": "D:\\Snake\\CorresCaracteresGraficos.cs",
+              "RelativeToolTip": "CorresCaracteresGraficos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-04T16:09:59.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "geradorPontos.cs",
+              "DocumentMoniker": "D:\\Snake\\geradorPontos.cs",
+              "RelativeDocumentMoniker": "geradorPontos.cs",
+              "ToolTip": "D:\\Snake\\geradorPontos.cs",
+              "RelativeToolTip": "geradorPontos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-04T16:09:57.496Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
