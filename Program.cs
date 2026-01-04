@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApplication2
 {
@@ -13,19 +9,14 @@ namespace ConsoleApplication2
             Console.SetWindowSize(120, 29);
             Tela t = new Tela(30, 1, 118, 25); // ZoNA JOGAVEL
 
-
-
-            geradorPontos[] gerador = new geradorPontos[100];
-
-
-
+            geradorPontos gerador = null;
 
             Tela t2 = new Tela(1, 1, 28, 25); // CAMPO PONTOS
             Tela t3 = new Tela(1, 27, 118, 27); // CAMPO MSG
 
 
             Pto[] p = new Pto[5];
-            p[0] = new Pto("‡", 45, 15,1);
+            p[0] = new Pto("‡", 45, 15, 1);
 
             Grafico g = new Grafico();
 
@@ -47,52 +38,91 @@ namespace ConsoleApplication2
             g.defineTexto(3, 2, "JOGO DA COBRA");
             g.defineTexto(3, 3, "Feito por Marcos");
 
-            
-
-
-
-            int i = 1; // tamanho da cobra
+            int tamanhoCobra = 1; // tamanho da cobra
             while (repete == true)
             {
-                gerador[0] = new geradorPontos(50, 20, true);
-                g.defineTexto(50, 20, "*");
+                if (gerador == null || gerador.getMarca() == false)
+                {
+                    var sorteio = new geradorPontos(0, 0, true);
+                    gerador = new geradorPontos(sorteio.AleatorioX(), sorteio.AleatorioY(), true);
+                    g.defineTexto(gerador.getpontoX(), gerador.getpontoY(), "*");
+                }
 
                 Tecla = Console.ReadKey(true);
-                if (g.validarPto(p[0], t))
 
+                // memoriza posições anteriores
+                for (int x = 0; x < tamanhoCobra; x++)
                 {
-                    for (int x = 0; x < i; x++)
-                    {
-                        g.andarPto(p[x], t, Tecla);
-
-                    }
-
-                    g.alimentar(p[0],gerador[0]);
-                    if (gerador[0].getMarca() == false)
-                    {
-                        i++;
-                        // p[i] = new Pto("‡", p[i-1].getPX()-1, p[i-1].getPY(), i);
-                        p[1] = new Pto("‡", p[0].getPX()-1, p[0].getPX(), i);
-
-                       // p[i].setPX(p[i - 1].getPX() - 1);
-                       // p[i].setPY(p[i - 1].getPY());
-
-
-
-                    }
-
-                    //MOVIMENTAÇÂO DEMAIS PONTOS SERÁ EXECUTADO NA CLASSE GRAFICO, SERA FEITO UMA VERIFICAÇÂO CONSTANTE DE QUANTIDADE DE PONTOS CONSUMIDOS O PONTO ANTERIOR IRA ACEDER A CORDENADA DO PONTO MOVIMENTAVEL
-
+                    p[x].lembrarPosicao();
                 }
-                else
+
+                moverCabeça(p[0], Tecla);
+
+                if (!g.validarPto(p[0], t))
                 {
                     repete = false;
                     g.defineTexto(60, 27, "GAME OVER");
-
                     Console.ReadKey();
-
+                    continue;
                 }
 
+                // move corpo seguindo a cabeça
+                for (int x = 1; x < tamanhoCobra; x++)
+                {
+                    p[x].setUltimo(p[x].getPX(), p[x].getPY());
+                    p[x].setPX(p[x - 1].getultimoX());
+                    p[x].setPY(p[x - 1].getultimoY());
+                }
+
+                int caudaX = p[tamanhoCobra - 1].getultimoX();
+                int caudaY = p[tamanhoCobra - 1].getultimoY();
+
+                // redesenha cobra e limpa cauda antiga
+                g.desenharCobra(p, tamanhoCobra);
+                g.limparPosicao(caudaX, caudaY);
+
+                if (g.alimentar(p[0], gerador))
+                {
+                    tamanhoCobra++;
+                    if (tamanhoCobra > p.Length)
+                    {
+                        Array.Resize(ref p, tamanhoCobra + 5);
+                    }
+
+                    p[tamanhoCobra - 1] = new Pto("‡", p[tamanhoCobra - 2].getultimoX(), p[tamanhoCobra - 2].getultimoY(), tamanhoCobra);
+                    gerador = new geradorPontos(gerador.AleatorioX(), gerador.AleatorioY(), true);
+                    g.defineTexto(gerador.getpontoX(), gerador.getpontoY(), "*");
+                }
+
+            }
+
+        }
+
+        static void moverCabeça(Pto cabeca, ConsoleKeyInfo Tecla)
+        {
+            if (Tecla.Key == ConsoleKey.LeftArrow)
+            {
+                cabeca.setPX(cabeca.getPX() - cabeca.gettamanhoCobra());
+
+            }
+            else if (Tecla.Key == ConsoleKey.RightArrow)
+            {
+                cabeca.setPX(cabeca.getPX() + cabeca.gettamanhoCobra());
+
+            }
+            else if (Tecla.Key == ConsoleKey.UpArrow)
+            {
+                cabeca.setPY(cabeca.getPY() - cabeca.gettamanhoCobra());
+
+            }
+            else if (Tecla.Key == ConsoleKey.DownArrow)
+            {
+                cabeca.setPY(cabeca.getPY() + cabeca.gettamanhoCobra());
+
+            }
+            else
+            {
+                // mantém posição quando tecla inválida
             }
 
         }
@@ -100,5 +130,3 @@ namespace ConsoleApplication2
     }
 }
 
-        
-    
